@@ -1,5 +1,7 @@
 import { databases } from "@/appwrite/config";
-import { ID } from 'appwrite';
+// import { ID } from 'appwrite';
+
+// async function 
 
 export async function getRecipes(): Promise<Recipe[]> {
     const response = await databases.listDocuments(
@@ -14,7 +16,8 @@ export async function getRecipes(): Promise<Recipe[]> {
       const recipes: Recipe[] = response.documents.map((doc) => ({
         $id: doc.$id,
         $createdAt: doc.$createdAt,
-        recipeName: doc.recipeName
+        recipeName: doc.recipeName,
+        recipeId: doc.recipeId
       }))
 
       return recipes

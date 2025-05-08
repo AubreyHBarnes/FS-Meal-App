@@ -1,18 +1,13 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+## WIP
 
-First, run the development server:
+Prerequisite: AppWrite account, I followed this tutorial from [Net Ninja](https://youtu.be/HGlBpna17LQ?si=-s2AAPd2Oa1wm4He)
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npx create-next-app@latest
 ```
+Using all defaults
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 

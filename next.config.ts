@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   /* config options here */
   env:{
     UNSPLASH: process.env.UNSPLASH_API_KEY,
-    MEALDB: process.env.COCKTAILDB_API_KEY,
+    MEALDB: process.env.MEALDB_API_KEY,
     AW_ENDPOINT: process.env.AW_ENDPOINT,
     AW_PROJECT_ID: process.env.AW_PROJECT_ID,
     AW_DB_ID: process.env.AW_DB_ID,
