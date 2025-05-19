@@ -11,8 +11,6 @@ export async function getRecipes(): Promise<Recipe[]> {
         process.env.AW_COLLECTION_ID_RECIPES
       );
 
-      console.log(response.documents)
-
       const recipes: Recipe[] = response.documents.map((doc) => ({
         $id: doc.$id,
         $createdAt: doc.$createdAt,
