@@ -1,22 +1,25 @@
 'use client';
 
-import { useState } from "react";
-import Search from "@/components/Search";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 export default function SearchResultsPage() {
     const [results, setResults] = useState<any[]>([]);
+    const searchParams = useSearchParams();
+    const query = searchParams.get("query");
 
-    const handleSearchResults = (data: any[]) => {
-        setResults(data || []);
-    };
+    useEffect(() => {
+        if (!query) return;
+        async function fetchResults() {
+            const res = await fetch(`https://www.themealdb.com/api/json/v2/${process.env.MEALDB}/search.php?s=${encodeURIComponent(query)}`);
+            const data = await res.json();
+            setResults(data.meals || []);
+        }
+        fetchResults();
+    }, [query]);
 
     return (
         <div className="flex flex-col items-center justify-start min-h-screen p-4">
-            <h1 className="text-2xl font-bold mb-4">Search for Meals</h1>
-            <Search
-                placeholder="Search for a meal..."
-                onSearchResults={handleSearchResults}
-            />
             <div className="mt-6 w-full max-w-4xl">
                 {results.length > 0 ? (
                     <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
