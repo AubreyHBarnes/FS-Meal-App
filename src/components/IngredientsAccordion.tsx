@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface IngredientsAccordionProps {
     ingredients: { [key: string]: string };
@@ -8,6 +8,18 @@ interface IngredientsAccordionProps {
 
 const IngredientsAccordion: React.FC<IngredientsAccordionProps> = ({ ingredients, measurements }) => {
     const [isOpen, setIsOpen] = useState(false);
+
+    useEffect(() => {
+        // Tailwind's md: is 768px and up
+        const mediaQuery = window.matchMedia('(min-width: 768px)');
+        if (mediaQuery.matches) {
+            setIsOpen(true);
+        }
+        // Listen for screen size changes
+        const handler = (e: MediaQueryListEvent) => setIsOpen(e.matches);
+        mediaQuery.addEventListener('change', handler);
+        return () => mediaQuery.removeEventListener('change', handler);
+    }, []);
 
     const toggleAccordion = () => {
         setIsOpen(!isOpen);

@@ -2,6 +2,7 @@
 
 import Accordion from "@/components/DirectionsAccordion";
 import IngredientsAccordion from "@/components/IngredientsAccordion";
+import Navbar from "@/components/Navbar";
 import Image from "next/image";
 
 export default async function RecipeDetails({ params }: {params: Promise<{ id: string }>}) {
@@ -34,23 +35,26 @@ export default async function RecipeDetails({ params }: {params: Promise<{ id: s
       
       
   return (
-    <section className="py-4 flex flex-col md:flex-row px-3 gap-5 max-w-[1200px] m-auto">
-      <div className="recipe-sidebar flex flex-col gap-3 md:max-w-1/3 md:self-center">
-        <h1 className="text-center font-semibold capitalize text-xl">{fullRecipe.strMeal}</h1>
-        <Image
-          src={fullRecipe.strMealThumb}
-          alt={fullRecipe.strMeal} 
-          width={700}
-          height={700}
-          className="rounded-xl" />
-          <IngredientsAccordion measurements={measurements} ingredients={ingredients} />
-     
-      </div>
-      <div className="recipe-steps md:max-w-2/3">
-          <Accordion title={fullRecipe.strMeal} description={fullRecipe.strInstructions} />
-
-      </div>
+    <>
+      <Navbar />
+      <section className="py-4 flex flex-col md:flex-row px-3 gap-5 max-w-[1200px] m-auto">
+        <div className="recipe-sidebar flex flex-col gap-3 md:max-w-1/3 md:self-center">
+          <h1 className="text-center font-semibold capitalize text-xl">{fullRecipe.strMeal}</h1>
+          <Image
+            src={fullRecipe.strMealThumb}
+            alt={fullRecipe.strMeal} 
+            width={700}
+            height={700}
+            className="rounded-xl" />
+            <IngredientsAccordion measurements={measurements} ingredients={ingredients} />
       
-    </section>
+        </div>
+        <div className="recipe-steps md:max-w-2/3 md:mt-[2.25rem]">
+            <Accordion title={fullRecipe.strMeal} description={fullRecipe.strInstructions} />
+
+        </div>
+        
+      </section>
+    </>
   );
 };
