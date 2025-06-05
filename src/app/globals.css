@@ -3,3 +3,18 @@
 .hero-container {
     background-image: url('/jed-owen-q6Y8Xr3SoQA-unsplash.webp');
 }
+
+.is-layout-stretched-link {
+    display: block;
+    
+
+    &::after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+}

@@ -10,7 +10,7 @@ type ResultsCardProps = {
 
 export default function SearchResultsCard( props: ResultsCardProps ) {
     return (
-        <div>
+        <div className="relative">
             <h2 className="text-white">{props.strResult}</h2>
             <div className="card-wrapper max-w-[350px] bg-white text-black rounded-xl">
                 <div className="ImgWrapper">
@@ -32,7 +32,7 @@ export default function SearchResultsCard( props: ResultsCardProps ) {
                         {/* <p className="blogExcerpt text-neutral-600">Curated vibrants colors for your living, make it pop & calm in the same time.</p> */}
                     </div>
 
-                    <Link role="button" className="flex items-center gap-4 text-indigo-700 font-medium pt-5" href={`/recipes/${props.strResultId}`}>Read More</Link>
+                    <Link role="button" className="is-layout-stretched-link flex items-center gap-4 text-indigo-700 font-medium pt-5" href={`/recipes/${props.strResultId}`}>Read More</Link>
                 </div>
             </div>
         </div>
