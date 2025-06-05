@@ -33,6 +33,7 @@ export default function SearchResultsPage() {
                                 strResult={meal.strMeal}
                                 strResultThumb={meal.strMealThumb}
                                 strInstructions={meal.strInstructions}
+                                strResultId={meal.idMeal} // Assuming you want to pass the meal ID as well
                                 />
                                 
                             ))}

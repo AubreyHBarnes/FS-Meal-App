@@ -1,9 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
 
 type ResultsCardProps = {  
     strResult: string,  
     strResultThumb: string,
-    strInstructions: string
+    strInstructions: string,
+    strResultId: number
 }
 
 export default function SearchResultsCard( props: ResultsCardProps ) {
@@ -30,15 +32,7 @@ export default function SearchResultsCard( props: ResultsCardProps ) {
                         {/* <p className="blogExcerpt text-neutral-600">Curated vibrants colors for your living, make it pop & calm in the same time.</p> */}
                     </div>
 
-                    <a role="button" className="flex items-center gap-4 text-indigo-700 font-medium pt-5" href="#">Read More 
-                    {/* <span>
-                        <Image 
-                        src="/read-more-arrow.svg" 
-                        width={15} 
-                        height={15}
-                        alt="" />
-                    </span> */}
-                    </a>
+                    <Link role="button" className="flex items-center gap-4 text-indigo-700 font-medium pt-5" href={`/recipes/${props.strResultId}`}>Read More</Link>
                 </div>
             </div>
         </div>
